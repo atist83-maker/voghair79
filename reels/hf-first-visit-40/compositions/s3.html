@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #s3-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+/* Scene 3: the offer */
+      #s3-root {
+        background: var(--concrete);
+        color: var(--ink);
+      }
+      #s3-root .ghost {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.16;
+        filter: grayscale(1);
+      }
+      .offer {
+        position: absolute;
+        left: 88px;
+        right: 88px;
+        top: 360px;
+        bottom: 430px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+      }
+      .offer-tag {
+        align-self: flex-start;
+        padding: 16px 30px;
+        background: var(--ink);
+        color: var(--white);
+        font-weight: 700;
+        font-size: 46px;
+        letter-spacing: 0.02em;
+      }
+      .offer-row {
+        display: flex;
+        align-items: flex-end;
+        gap: 24px;
+        margin-top: 70px;
+      }
+      .offer-max {
+        font-weight: 800;
+        font-size: 96px;
+        line-height: 1;
+        padding-bottom: 60px;
+      }
+      .offer-num {
+        font-family: var(--en);
+        font-weight: 800;
+        font-size: 380px;
+        line-height: 0.9;
+        letter-spacing: -0.05em;
+        color: #c9531a;
+        display: flex;
+        align-items: flex-end;
+      }
+      .offer-num .pct {
+        font-size: 190px;
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+      .offer-off {
+        font-weight: 800;
+        font-size: 150px;
+        line-height: 1;
+        letter-spacing: -0.03em;
+      }
+      .offer-rule {
+        display: block;
+        width: 100%;
+        height: 4px;
+        margin-top: 44px;
+        background: var(--ink);
+        transform-origin: left center;
+      }
+      .offer-note {
+        margin-top: 26px;
+        font-weight: 500;
+        font-size: 40px;
+        color: #45474b;
+      }
+
+      
+      </style>
+      <div id="s3-root" data-composition-id="s3" data-width="1080" data-height="1920">
+        <div id="s3-fade" class="fade">
+          <img id="s3-img" class="ghost" src="assets/photos/3.jpg" alt="" />
+          <div class="offer">
+            <div id="s3-tag" class="offer-tag">첫 방문 고객 이벤트</div>
+            <div class="offer-row">
+              <div id="s3-max" class="offer-max">최대</div>
+              <div id="s3-num" class="offer-num"><span id="s3-count">40</span><span class="pct">%</span></div>
+            </div>
+            <div id="s3-off" class="offer-off">할인</div>
+            <span id="s3-rule" class="offer-rule"></span>
+            <div id="s3-note" class="offer-note">보그헤어 배곧점 첫 방문 고객님 대상</div>
+          </div>
+        </div>
+      </div>
+      <script>
+      (() => {
+        const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#s3-fade", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.inOut" }, 0.0);
+      tl.fromTo("#s3-img", { scale: 1.08 }, { scale: 1.0, duration: 4.6, ease: "none" }, 0.0);
+      tl.fromTo("#s3-tag", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.25);
+      tl.fromTo("#s3-max", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.55);
+      tl.fromTo("#s3-num", { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)", transformOrigin: "left bottom" }, 0.7);
+      const counter = { v: 0 };
+      const countEl = document.getElementById("s3-count");
+      tl.fromTo(
+        counter,
+        { v: 0 },
+        {
+          v: 40,
+          duration: 1.1,
+          ease: "power2.out",
+          onUpdate: () => {
+            countEl.textContent = String(Math.round(counter.v));
+          },
+        }, 0.7);
+      tl.fromTo("#s3-off", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 1.6);
+      tl.fromTo("#s3-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power2.inOut" }, 1.9);
+      tl.fromTo("#s3-note", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.out" }, 2.3);
+      tl.fromTo("#s3-num", { scale: 1 }, { scale: 1.04, duration: 0.25, yoyo: true, repeat: 1, ease: "power1.inOut", transformOrigin: "left bottom", immediateRender: false }, 3.0);
+        window.__timelines["s3"] = tl;
+      })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #s4-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+/* Scene 4: end card */
+      #s4-root .photo {
+        filter: grayscale(0.3) brightness(0.42);
+      }
+      .end {
+        position: absolute;
+        left: 88px;
+        right: 88px;
+        top: 300px;
+        bottom: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 22px;
+      }
+      .logo {
+        font-family: var(--en);
+        font-weight: 600;
+        font-size: 150px;
+        letter-spacing: 0.04em;
+        line-height: 1;
+        display: flex;
+        gap: 0.28em;
+      }
+      .logo .o {
+        position: relative;
+        display: inline-block;
+      }
+      .logo .o::after {
+        content: "";
+        position: absolute;
+        left: 8%;
+        right: 8%;
+        bottom: -18px;
+        height: 12px;
+        background: var(--accent);
+      }
+      .store {
+        margin-top: 40px;
+        font-weight: 700;
+        font-size: 64px;
+        letter-spacing: 0.02em;
+      }
+      .cta {
+        margin-top: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        padding: 40px 56px;
+        background: var(--white);
+        color: var(--ink);
+      }
+      .cta-top {
+        font-weight: 700;
+        font-size: 42px;
+        color: #03a94d;
+      }
+      .cta-main {
+        font-weight: 800;
+        font-size: 58px;
+        letter-spacing: -0.02em;
+      }
+      .meta {
+        margin-top: 40px;
+        font-weight: 500;
+        font-size: 40px;
+        color: rgba(255, 255, 255, 0.9);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+    
+      </style>
+      <div id="s4-root" data-composition-id="s4" data-width="1080" data-height="1920">
+        <div id="s4-fade" class="fade">
+          <img id="s4-img" class="photo" src="assets/photos/5.jpg" alt="" />
+          <div class="end">
+            <div id="s4-logo" class="logo"><span>V<span class="o">O</span>G</span><span>HAIR</span></div>
+            <div id="s4-store" class="store">보그헤어 배곧점</div>
+            <div id="s4-cta" class="cta">
+              <div class="cta-top">네이버 예약</div>
+              <div class="cta-main">'보그헤어 배곧점' 검색</div>
+            </div>
+            <div id="s4-meta" class="meta">
+              <div>시흥 배곧신도시</div>
+              <div>@voghair_k</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+      (() => {
+        const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#s4-fade", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.inOut" }, 0.0);
+      tl.fromTo("#s4-img", { scale: 1.12 }, { scale: 1.02, duration: 4.8, ease: "none" }, 0.0);
+      tl.fromTo("#s4-logo", { opacity: 0, y: 40, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: "power3.out" }, 0.25);
+      tl.fromTo("#s4-store", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.7);
+      tl.fromTo("#s4-cta", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 1.1);
+      tl.fromTo("#s4-meta", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.out" }, 1.6);
+        window.__timelines["s4"] = tl;
+      })();
+      </script>
+    </template>
+  </body>
+</html>

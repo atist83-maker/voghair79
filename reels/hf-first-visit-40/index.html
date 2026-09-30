@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Pretendard";
+        src: url("assets/fonts/Pretendard-Medium.woff2") format("woff2");
+        font-weight: 500;
+      }
+      @font-face {
+        font-family: "Pretendard";
+        src: url("assets/fonts/Pretendard-Bold.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Pretendard";
+        src: url("assets/fonts/Pretendard-ExtraBold.woff2") format("woff2");
+        font-weight: 800;
+      }
+      :root {
+        --ink: #17181a;
+        --concrete: #e9e8e5;
+        --white: #ffffff;
+        --accent: #f26b1d;
+        --kr: "Pretendard", sans-serif;
+        --en: "Montserrat", sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--ink);
+      }
+      #main-root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: var(--ink);
+        font-family: var(--kr);
+        color: var(--white);
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+      .fade {
+        position: absolute;
+        inset: 0;
+      }
+      .photo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .shade {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(10, 10, 12, 0.15) 0%, rgba(10, 10, 12, 0) 30%, rgba(10, 10, 12, 0.55) 62%, rgba(10, 10, 12, 0.88) 100%);
+      }
+      /* Reels safe area: clear the top bar and the bottom caption/UI zone */
+      .copy {
+        position: absolute;
+        left: 88px;
+        right: 150px;
+        bottom: 430px;
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+      }
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-family: var(--en);
+        font-weight: 700;
+        font-size: 34px;
+        letter-spacing: 0.2em;
+      }
+      .eyebrow .kr {
+        font-family: var(--kr);
+        letter-spacing: 0.04em;
+      }
+      .bar {
+        display: block;
+        width: 72px;
+        height: 6px;
+        background: var(--accent);
+      }
+      .headline {
+        font-weight: 800;
+        font-size: 104px;
+        line-height: 1.18;
+        letter-spacing: -0.03em;
+      }
+      .headline em {
+        font-style: normal;
+        color: var(--accent);
+      }
+      .sub {
+        font-weight: 500;
+        font-size: 44px;
+        line-height: 1.4;
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+          </style>
+  </head>
+  <body>
+    <div
+      id="main-root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="15"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div
+        id="s1"
+        data-composition-id="s1"
+        data-composition-src="compositions/s1.html"
+        data-start="0"
+        data-duration="3.4"
+        data-track-index="0"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="s2"
+        data-composition-id="s2"
+        data-composition-src="compositions/s2.html"
+        data-start="3"
+        data-duration="3.4"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="s3"
+        data-composition-id="s3"
+        data-composition-src="compositions/s3.html"
+        data-start="6"
+        data-duration="4.6"
+        data-track-index="2"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="s4"
+        data-composition-id="s4"
+        data-composition-src="compositions/s4.html"
+        data-start="10.2"
+        data-duration="4.8"
+        data-track-index="3"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

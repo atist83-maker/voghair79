@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #s1-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+
+      </style>
+      <div id="s1-root" data-composition-id="s1" data-width="1080" data-height="1920">
+        <div id="s1-fade" class="fade">
+          <img id="s1-img" class="photo" src="assets/photos/2.jpg" alt="" />
+          <div class="shade"></div>
+          <div class="copy">
+            <div id="s1-eyebrow" class="eyebrow"><span class="bar"></span><span>VOG HAIR</span><span class="kr">배곧점</span></div>
+            <h1 id="s1-head" class="headline">배곧에서<br />미용실 찾고 계세요?</h1>
+          </div>
+        </div>
+      </div>
+      <script>
+      (() => {
+        const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#s1-img", { scale: 1.02 }, { scale: 1.14, duration: 3.4, ease: "none" }, 0.0);
+      tl.fromTo("#s1-eyebrow", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.25);
+      tl.fromTo("#s1-head", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.45);
+        window.__timelines["s1"] = tl;
+      })();
+      </script>
+    </template>
+  </body>
+</html>
