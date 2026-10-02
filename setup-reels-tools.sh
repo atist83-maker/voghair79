@@ -55,7 +55,12 @@ echo "==> 설치된 버전"
 echo "brew:        $(brew --version | head -1)"
 echo "yt-dlp:      $(yt-dlp --version)"
 echo "ffmpeg:      $(ffmpeg -version | head -1)"
-echo "whisper-cpp: $(brew list --versions whisper-cpp)"
+if command -v whisper-cli >/dev/null 2>&1; then
+  echo "whisper-cli: $(command -v whisper-cli) ($(brew list --versions whisper-cpp))"
+else
+  echo "whisper-cli: 찾을 수 없음 - 새 터미널을 열고 다시 확인하세요" >&2
+  exit 1
+fi
 ls -lh "${MODEL_DIR}/${MODEL_NAME}"
 echo
 echo "설치 끝!"
