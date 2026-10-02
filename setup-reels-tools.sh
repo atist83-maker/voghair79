@@ -36,8 +36,8 @@ if ! command -v brew >/dev/null 2>&1; then
 fi
 
 # 2. 도구 설치
-echo "==> yt-dlp, ffmpeg, whisper-cpp 설치"
-brew install yt-dlp ffmpeg whisper-cpp
+echo "==> yt-dlp, ffmpeg, whisper.cpp 설치"
+brew install yt-dlp ffmpeg whisper.cpp
 
 # 3. whisper 모델
 mkdir -p "$MODEL_DIR"
@@ -56,7 +56,7 @@ echo "brew:        $(brew --version | head -1)"
 echo "yt-dlp:      $(yt-dlp --version)"
 echo "ffmpeg:      $(ffmpeg -version | head -1)"
 if command -v whisper-cli >/dev/null 2>&1; then
-  echo "whisper-cli: $(command -v whisper-cli) ($(brew list --versions whisper-cpp))"
+  echo "whisper-cli: $(command -v whisper-cli) ($(brew list --versions whisper.cpp))"
 else
   echo "whisper-cli: 찾을 수 없음 - 새 터미널을 열고 다시 확인하세요" >&2
   exit 1
