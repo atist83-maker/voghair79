@@ -5,9 +5,16 @@
         "source": "github",
         "repo": "charlie947/social-media-skills"
       }
+    },
+    "instagram-agent-skill": {
+      "source": {
+        "source": "github",
+        "repo": "Jakeschincariol/instagram-agent-skill"
+      }
     }
   },
   "enabledPlugins": {
-    "social-media-skills@social-media-skills": true
+    "social-media-skills@social-media-skills": true,
+    "instagram-agent@instagram-agent-skill": true
   }
 }
