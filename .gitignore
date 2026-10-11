@@ -1,0 +1,11 @@
+# 파이썬 가상환경 (컴퓨터마다 새로 만듦)
+.venv/
+__pycache__/
+
+# 촬영본·결과물은 용량이 커서 깃에 올리지 않음
+input/**
+!input/README.md
+!input/_예시_영상이름/
+!input/_예시_영상이름/script.txt
+output/**
+!output/.gitkeep
