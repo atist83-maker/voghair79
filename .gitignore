@@ -9,3 +9,6 @@ input/**
 !input/_예시_영상이름/script.txt
 output/**
 !output/.gitkeep
+
+# Harvey (third-party clone, own git repo)
+harvey/
